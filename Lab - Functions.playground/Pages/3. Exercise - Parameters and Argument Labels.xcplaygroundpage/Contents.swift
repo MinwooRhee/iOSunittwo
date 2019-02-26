@@ -12,11 +12,19 @@ introduction(name: "Minwoo", home: "Seoul", age: 19)
 /*:
  Write a function called `almostAddition` that takes two `Int` arguments. The first argument should not require an argument label. The function should add the two arguments together, subtract 2, then print the result. Call the function and observe the printout.
  */
+func almostAddition(int1: Int, int2: Int) {
+    print(int1 + int2 - 2)
+}
 
+almostAddition(int1: 3, int2: 5)
 
 /*:
  Write a function called `multiply` that takes two `Double` arguments. The function should multiply the two arguments and print the result. The first argument should not require a label, and the second argument should have an external label, "by", that differs from the internal label. Call the function and observe the printout.
  */
+func multipy(double1: Double, double2: Double) {
+    print(double1 * double2)
+}
 
+multipy(double1: 3.1, double2: 4.6)
 
 //: [Previous](@previous)  |  page 3 of 6  |  [Next: App Exercise - Progress Updates](@next)
