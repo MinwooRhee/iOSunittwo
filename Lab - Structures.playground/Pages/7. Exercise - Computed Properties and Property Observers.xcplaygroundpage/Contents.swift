@@ -48,5 +48,6 @@ struct Height {
 }
 
 var myHeight = Height(heightInCentimeters: 167)
+print(myHeight.heightInInches)
 
 //: [Previous](@previous)  |  page 7 of 10  |  [Next: App Exercise - Mile Times and Congratulations](@next)
