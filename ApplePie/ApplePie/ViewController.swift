@@ -16,5 +16,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBOutlet weak var treeImageView: UIImageView!
+    @IBOutlet weak var correctWordLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
 }
 
