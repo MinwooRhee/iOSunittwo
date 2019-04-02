@@ -32,9 +32,17 @@ class ViewController: UIViewController {
     var currentGame: Game!
     
     func newRound() {
-        let newWord = listOfWords.removeFirst()
-        currentGame = Game(word: newWord, incorrectMovesRemaining: incorrectMovesAllowed, guessedLetters: [])
-        updateUI()
+        if !listOfWords.isEmpty {
+            let newWord = listOfWords.removeFirst()
+            currentGame = Game(word: newWord, incorrectMovesRemaining: incorrectMovesAllowed, guessedLetters: [])
+            enableLetterButtons(true)
+            updateUI()
+        }
+        else {
+            enableLetterButtons(false)
+            updateUI()
+        }
+
     }
     
     func updateUI() {
@@ -51,6 +59,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var treeImageView: UIImageView!
     @IBOutlet weak var correctWordLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet var letterButtons: [UIButton]!
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         sender.isEnabled = false
@@ -69,6 +78,12 @@ class ViewController: UIViewController {
         }
         else {
             updateUI()
+        }
+    }
+    
+    func enableLetterButtons(_ enable: Bool) {
+        for button in letterButtons {
+            button.isEnabled = enable
         }
     }
     
