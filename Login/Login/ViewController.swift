@@ -16,9 +16,11 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.title = userName.text
         
     }
-
+    
+    @IBOutlet weak var userName: UITextField!
 
 }
 
