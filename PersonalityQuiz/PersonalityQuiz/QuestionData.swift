@@ -11,7 +11,7 @@ import Foundation
 struct Question {
     var text: String
     var type: ResponseType
-    var answer: [Answer]
+    var answers: [Answer]
 }
 
 enum ResponseType {
@@ -25,4 +25,17 @@ struct Answer {
 
 enum AnimalType: Character {
     case snake = "🐍", snail = "🐌", bat = "🦇", squid = "🦑"
+    
+    var definition: String {
+        switch self {
+        case .snake:
+            return "You are a snake. You like slithering on the floor."
+        case .snail:
+            return "You are a snail. Big amount of sodium will kill you."
+        case .bat:
+            return "You are a bat. You do are not like other mammals."
+        case .squid:
+            return "You are a squid. You drown your victims into deep water."
+        }
+    }
 }
