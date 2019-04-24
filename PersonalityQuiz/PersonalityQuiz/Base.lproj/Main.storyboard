@@ -95,6 +95,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="269-1a-1Uk">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="x2i-V7-BK1" eventType="touchUpInside" id="Aft-Ed-6QF"/>
+                                            <action selector="singleButton1:" destination="x2i-V7-BK1" eventType="touchUpInside" id="R5N-gD-5LM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAs-5Q-Ope">
                                         <rect key="frame" x="0.0" y="50" width="359" height="30"/>
@@ -239,6 +243,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="xqY-e1-NtV"/>
                     <connections>
+                        <outlet property="multiLabel1" destination="BZG-wc-CnQ" id="Kfn-pY-LfW"/>
+                        <outlet property="multiLabel2" destination="9Kf-xB-gzT" id="7Ol-T2-sZY"/>
+                        <outlet property="multiLabel3" destination="42R-NO-ihM" id="MrR-6W-tqB"/>
+                        <outlet property="multiLabel4" destination="Qg0-B5-nDb" id="dHl-JO-ATT"/>
+                        <outlet property="multipleStackView" destination="SVi-2W-ZdN" id="xvS-Cd-xcK"/>
+                        <outlet property="questionLabel" destination="rtT-LN-2Rk" id="nF5-P3-CvF"/>
+                        <outlet property="questionProgressView" destination="FvZ-Sh-Wvx" id="yw4-ze-bag"/>
+                        <outlet property="rangedLabel1" destination="kAP-7L-vRh" id="uVX-Qa-uSq"/>
+                        <outlet property="rangedLabel2" destination="B9u-Kg-j7z" id="5l8-Lo-Spm"/>
+                        <outlet property="rangedStackView" destination="Ns0-S7-NrT" id="qFg-nr-N91"/>
+                        <outlet property="singleButton1" destination="269-1a-1Uk" id="O8c-kx-sqz"/>
+                        <outlet property="singleButton2" destination="iAs-5Q-Ope" id="GZL-vt-EFC"/>
+                        <outlet property="singleButton3" destination="2kY-hZ-pjU" id="dQe-FC-X1z"/>
+                        <outlet property="singleButton4" destination="I0M-Ma-Zks" id="ha1-Th-c6M"/>
+                        <outlet property="singleStackView" destination="B6p-Hh-vFq" id="gy6-F9-S5p"/>
                         <segue destination="eUR-RD-Jab" kind="show" id="VNb-AY-dSI"/>
                     </connections>
                 </viewController>
