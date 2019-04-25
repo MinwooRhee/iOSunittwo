@@ -17,6 +17,13 @@ class QuestionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ResultsSegue" {
+            let resultsViewController = segue.destination as! ResultsViewController
+            resultsViewController.responses = answersChosen
+        }
+    }
+    
     func updateUI() {
         singleStackView.isHidden =  true
         multipleStackView.isHidden =  true
@@ -40,6 +47,17 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    func nextQuestion() {
+        questionIndex += 1
+        
+        if questionIndex < questions.count {
+            updateUI()
+        }
+        else {
+            performSegue(withIdentifier: "ResultsSegue", sender: nil)
+        }
+    }
+    
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         let currentAnswers = questions[questionIndex].answers
         
@@ -55,7 +73,38 @@ class QuestionViewController: UIViewController {
         default:
             break
         }
+        
+        nextQuestion()
     }
+    
+    @IBAction func multipleAnswerButtonPressed(_ sender: UISwitch) {
+        let currentAnswers = questions[questionIndex].answers
+        
+        if multiSwitch1.isOn {
+            answersChosen.append(currentAnswers[0])
+        }
+        if multiSwitch2.isOn {
+            answersChosen.append(currentAnswers[1])
+        }
+        if multiSwitch3.isOn {
+            answersChosen.append(currentAnswers[2])
+        }
+        if multiSwitch4.isOn {
+            answersChosen.append(currentAnswers[3])
+        }
+        
+        nextQuestion()
+    }
+    
+    @IBAction func rangedAnswerButtonPressed() {
+        let currentAnswers = questions[questionIndex].answers
+        let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
+        answersChosen.append(currentAnswers[index])
+        
+        nextQuestion()
+    }
+    
+    
     
     func updateSingleStack(using answers: [Answer]) {
         singleStackView.isHidden = false
@@ -67,6 +116,10 @@ class QuestionViewController: UIViewController {
     
     func updateMultipleStack(using answers: [Answer]) {
         multipleStackView.isHidden = false
+        multiSwitch1.isOn = false
+        multiSwitch2.isOn = false
+        multiSwitch3.isOn = false
+        multiSwitch4.isOn = false
         multiLabel1.text = answers[0].text
         multiLabel2.text = answers[1].text
         multiLabel3.text = answers[2].text
@@ -75,6 +128,7 @@ class QuestionViewController: UIViewController {
     
     func updateRangedStack(using answers: [Answer]) {
         rangedStackView.isHidden = false
+        rangedSlider.setValue(0.5, animated: false)
         rangedLabel1.text = answers.first?.text
         rangedLabel2.text = answers.last?.text
     }
@@ -124,9 +178,16 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var multiLabel3: UILabel!
     @IBOutlet weak var multiLabel4: UILabel!
     
+    @IBOutlet weak var multiSwitch1: UISwitch!
+    @IBOutlet weak var multiSwitch2: UISwitch!
+    @IBOutlet weak var multiSwitch3: UISwitch!
+    @IBOutlet weak var multiSwitch4: UISwitch!
+    
     @IBOutlet weak var rangedStackView: UIStackView!
     @IBOutlet weak var rangedLabel1: UILabel!
     @IBOutlet weak var rangedLabel2: UILabel!
+    
+    @IBOutlet weak var rangedSlider: UISlider!
     
     @IBOutlet weak var questionProgressView: UIProgressView!
     

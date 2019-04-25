@@ -170,6 +170,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKr-NN-w9i">
                                                 <rect key="frame" x="141" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="multiSwitch4:" destination="x2i-V7-BK1" eventType="valueChanged" id="XKf-1F-iD1"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -178,7 +181,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ns0-S7-NrT" userLabel="slider Stack View">
                                 <rect key="frame" x="8" y="273.5" width="359" height="120.5"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gTM-pY-rJm">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTM-pY-rJm">
                                         <rect key="frame" x="3" y="0.0" width="353" height="31"/>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="259" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-Mg-fBy">
@@ -201,6 +204,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aWC-ga-orP">
                                         <rect key="frame" x="127.5" y="90.5" width="104" height="30"/>
                                         <state key="normal" title="Submit Answer"/>
+                                        <connections>
+                                            <action selector="rangedAnswerButtonPressed:" destination="x2i-V7-BK1" eventType="touchUpInside" id="cyz-wp-fg2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -247,18 +253,23 @@
                         <outlet property="multiLabel2" destination="9Kf-xB-gzT" id="7Ol-T2-sZY"/>
                         <outlet property="multiLabel3" destination="42R-NO-ihM" id="MrR-6W-tqB"/>
                         <outlet property="multiLabel4" destination="Qg0-B5-nDb" id="dHl-JO-ATT"/>
+                        <outlet property="multiSwitch1" destination="ZhN-sW-TaN" id="uDC-gl-1dL"/>
+                        <outlet property="multiSwitch2" destination="Xlo-m8-Zfg" id="dbu-Kq-Dap"/>
+                        <outlet property="multiSwitch3" destination="vsO-4v-hMA" id="6JM-mR-8sf"/>
+                        <outlet property="multiSwitch4" destination="lKr-NN-w9i" id="Mrc-pk-kmV"/>
                         <outlet property="multipleStackView" destination="SVi-2W-ZdN" id="xvS-Cd-xcK"/>
                         <outlet property="questionLabel" destination="rtT-LN-2Rk" id="nF5-P3-CvF"/>
                         <outlet property="questionProgressView" destination="FvZ-Sh-Wvx" id="yw4-ze-bag"/>
                         <outlet property="rangedLabel1" destination="kAP-7L-vRh" id="uVX-Qa-uSq"/>
                         <outlet property="rangedLabel2" destination="B9u-Kg-j7z" id="5l8-Lo-Spm"/>
+                        <outlet property="rangedSlider" destination="gTM-pY-rJm" id="Mdv-nk-bS6"/>
                         <outlet property="rangedStackView" destination="Ns0-S7-NrT" id="qFg-nr-N91"/>
                         <outlet property="singleButton1" destination="269-1a-1Uk" id="O8c-kx-sqz"/>
                         <outlet property="singleButton2" destination="iAs-5Q-Ope" id="GZL-vt-EFC"/>
                         <outlet property="singleButton3" destination="2kY-hZ-pjU" id="dQe-FC-X1z"/>
                         <outlet property="singleButton4" destination="I0M-Ma-Zks" id="ha1-Th-c6M"/>
                         <outlet property="singleStackView" destination="B6p-Hh-vFq" id="gy6-F9-S5p"/>
-                        <segue destination="eUR-RD-Jab" kind="show" id="VNb-AY-dSI"/>
+                        <segue destination="eUR-RD-Jab" kind="show" identifier="ResultsSegue" id="VNb-AY-dSI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irG-5X-ZbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
