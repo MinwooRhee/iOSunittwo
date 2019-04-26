@@ -41,9 +41,9 @@ class QuestionViewController: UIViewController {
         case .single:
             updateSingleStack(using: currentAnswers)
         case .multiple:
-            updateSingleStack(using: currentAnswers)
+            updateMultipleStack(using: currentAnswers)
         case .ranged:
-            updateSingleStack(using: currentAnswers)
+            updateRangedStack(using: currentAnswers)
         }
     }
     
@@ -57,54 +57,6 @@ class QuestionViewController: UIViewController {
             performSegue(withIdentifier: "ResultsSegue", sender: nil)
         }
     }
-    
-    @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
-        let currentAnswers = questions[questionIndex].answers
-        
-        switch sender {
-        case singleButton1:
-            answersChosen.append(currentAnswers[0])
-        case singleButton2:
-            answersChosen.append(currentAnswers[1])
-        case singleButton3:
-            answersChosen.append(currentAnswers[2])
-        case singleButton4:
-            answersChosen.append(currentAnswers[3])
-        default:
-            break
-        }
-        
-        nextQuestion()
-    }
-    
-    @IBAction func multipleAnswerButtonPressed(_ sender: UISwitch) {
-        let currentAnswers = questions[questionIndex].answers
-        
-        if multiSwitch1.isOn {
-            answersChosen.append(currentAnswers[0])
-        }
-        if multiSwitch2.isOn {
-            answersChosen.append(currentAnswers[1])
-        }
-        if multiSwitch3.isOn {
-            answersChosen.append(currentAnswers[2])
-        }
-        if multiSwitch4.isOn {
-            answersChosen.append(currentAnswers[3])
-        }
-        
-        nextQuestion()
-    }
-    
-    @IBAction func rangedAnswerButtonPressed() {
-        let currentAnswers = questions[questionIndex].answers
-        let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
-        answersChosen.append(currentAnswers[index])
-        
-        nextQuestion()
-    }
-    
-    
     
     func updateSingleStack(using answers: [Answer]) {
         singleStackView.isHidden = false
@@ -132,6 +84,54 @@ class QuestionViewController: UIViewController {
         rangedLabel1.text = answers.first?.text
         rangedLabel2.text = answers.last?.text
     }
+    
+    
+    @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
+        let currentAnswers = questions[questionIndex].answers
+        
+        switch sender {
+        case singleButton1:
+            answersChosen.append(currentAnswers[0])
+        case singleButton2:
+            answersChosen.append(currentAnswers[1])
+        case singleButton3:
+            answersChosen.append(currentAnswers[2])
+        case singleButton4:
+            answersChosen.append(currentAnswers[3])
+        default:
+            break
+        }
+        
+        nextQuestion()
+    }
+    @IBAction func multipleAnswerButtonPressed(_ sender: UISwitch) {
+        let currentAnswers = questions[questionIndex].answers
+        
+        if multiSwitch1.isOn {
+            answersChosen.append(currentAnswers[0])
+        }
+        if multiSwitch2.isOn {
+            answersChosen.append(currentAnswers[1])
+        }
+        if multiSwitch3.isOn {
+            answersChosen.append(currentAnswers[2])
+        }
+        if multiSwitch4.isOn {
+            answersChosen.append(currentAnswers[3])
+        }
+        
+        nextQuestion()
+    }
+    
+    
+    @IBAction func rangedAnswerButtonPressed() {
+        let currentAnswers = questions[questionIndex].answers
+        let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
+        answersChosen.append(currentAnswers[index])
+        
+        nextQuestion()
+    }
+    
     
     var questionIndex = 0
     
@@ -190,6 +190,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var rangedSlider: UISlider!
     
     @IBOutlet weak var questionProgressView: UIProgressView!
+    
     
 
     /*

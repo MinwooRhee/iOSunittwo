@@ -103,19 +103,28 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAs-5Q-Ope">
                                         <rect key="frame" x="0.0" y="50" width="359" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="x2i-V7-BK1" eventType="touchUpInside" id="Cev-jV-z8s"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kY-hZ-pjU">
                                         <rect key="frame" x="0.0" y="100" width="359" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="x2i-V7-BK1" eventType="touchUpInside" id="hy5-5e-jDt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0M-Ma-Zks">
                                         <rect key="frame" x="0.0" y="150" width="359" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="singleAnswerButtonPressed:" destination="x2i-V7-BK1" eventType="touchUpInside" id="nZi-kF-DfY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SVi-2W-ZdN" userLabel="switch Stack View">
-                                <rect key="frame" x="8" y="241.5" width="359" height="184"/>
+                                <rect key="frame" x="8" y="216.5" width="359" height="234"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="99" translatesAutoresizingMaskIntoConstraints="NO" id="oig-Xq-H6n">
                                         <rect key="frame" x="0.0" y="0.0" width="190" height="31"/>
@@ -170,30 +179,37 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKr-NN-w9i">
                                                 <rect key="frame" x="141" y="0.0" width="51" height="31"/>
-                                                <connections>
-                                                    <action selector="multiSwitch4:" destination="x2i-V7-BK1" eventType="valueChanged" id="XKf-1F-iD1"/>
-                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU8-aZ-Br4">
+                                        <rect key="frame" x="0.0" y="204" width="359" height="30"/>
+                                        <state key="normal" title="Submit Answer"/>
+                                        <connections>
+                                            <action selector="multipleAnswerButtonPressed:" destination="x2i-V7-BK1" eventType="touchUpInside" id="1xc-S5-uup"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="lU8-aZ-Br4" firstAttribute="centerX" secondItem="SVi-2W-ZdN" secondAttribute="centerX" id="TVM-WO-y92"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ns0-S7-NrT" userLabel="slider Stack View">
                                 <rect key="frame" x="8" y="273.5" width="359" height="120.5"/>
                                 <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="gTM-pY-rJm">
-                                        <rect key="frame" x="3" y="0.0" width="353" height="31"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gTM-pY-rJm">
+                                        <rect key="frame" x="-2" y="0.0" width="363" height="31"/>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="259" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-Mg-fBy">
                                         <rect key="frame" x="8" y="50" width="343" height="20.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-7L-vRh">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-7L-vRh">
                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9u-Kg-j7z">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9u-Kg-j7z">
                                                 <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -239,13 +255,6 @@
                             <constraint firstItem="FvZ-Sh-Wvx" firstAttribute="leading" secondItem="Lpq-Fu-3lV" secondAttribute="leadingMargin" constant="8" id="z4n-j7-rYb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I46-48-rHv"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="B6p-Hh-vFq"/>
-                                <exclude reference="SVi-2W-ZdN"/>
-                                <exclude reference="Ns0-S7-NrT"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="xqY-e1-NtV"/>
                     <connections>
@@ -315,6 +324,10 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="resultAnswerLabel" destination="nFC-l4-8fY" id="qso-pR-kNK"/>
+                        <outlet property="resultDefinitionLabel" destination="OZO-kr-tsX" id="1Yq-5J-PFI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JC-5M-lfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
