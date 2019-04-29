@@ -33,7 +33,7 @@ enum AnimalType: Character {
         case .snail:
             return "You are a snail. Big amount of sodium will kill you."
         case .bat:
-            return "You are a bat. You do are not like other mammals."
+            return "You are a bat. You are not like other mammals."
         case .squid:
             return "You are a squid. You drown your victims into deep water."
         }

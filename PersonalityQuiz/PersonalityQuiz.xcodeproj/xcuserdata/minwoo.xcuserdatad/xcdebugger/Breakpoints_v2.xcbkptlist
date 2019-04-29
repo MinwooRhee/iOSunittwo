@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PersonalityQuiz/QuestionViewController.swift"
-            timestampString = "577995277.9684041"
+            timestampString = "578257624.570286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "rangedAnswerButtonPressed()"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "nextQuestion()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

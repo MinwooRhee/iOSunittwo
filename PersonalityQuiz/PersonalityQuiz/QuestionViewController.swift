@@ -80,7 +80,6 @@ class QuestionViewController: UIViewController {
     
     func updateRangedStack(using answers: [Answer]) {
         rangedStackView.isHidden = false
-        rangedSlider.setValue(0.5, animated: false)
         rangedLabel1.text = answers.first?.text
         rangedLabel2.text = answers.last?.text
     }
@@ -155,12 +154,12 @@ class QuestionViewController: UIViewController {
                     Answer(text: "Counting how many arms I have", type: .squid)
             ]),
 
-        Question(text : "What is your skin like?", type: .ranged,
+        Question(text : "Do humans generally like you?", type: .ranged,
                 answers: [
-                    Answer(text: "Smooth and peels of every once in while", type: .snake),
-                    Answer(text: "Moisturized all the time", type: .snail),
-                    Answer(text: "Fuzzy", type: .bat),
-                    Answer(text: "Sticky and changes color", type: .squid)
+                    Answer(text: "NO", type: .snake),
+                    Answer(text: "Not really", type: .bat),
+                    Answer(text: "Probably not", type: .squid),
+                    Answer(text: "Kinda", type: .snail)
             ])
     ]
     
