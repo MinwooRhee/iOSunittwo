@@ -14,6 +14,7 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         calculatePersonalityResults()
         // Do any additional setup after loading the view.
     }
