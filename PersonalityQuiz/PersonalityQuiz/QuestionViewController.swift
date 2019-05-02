@@ -21,13 +21,47 @@ class QuestionViewController: UIViewController {
         if segue.identifier == "ResultsSegue" {
             let resultsViewController = segue.destination as! ResultsViewController
             resultsViewController.responses = answersChosen
+            // passing the chosen answers to the result view to calculate result
         }
     }
+    
+    var questionIndex = 0
+    
+    var answersChosen: [Answer] = []
+    
+    var questions: [Question] = [
+        // list of questions, struct defined in data file
+        
+        Question(text : "Which food do you like the most?", type: .single,
+                 answers: [
+                    Answer(text: "Rats", type: .snake),
+                    Answer(text: "Veggies", type: .snail),
+                    Answer(text: "Insects", type: .bat),
+                    Answer(text: "Fish", type: .squid)
+            ]),
+        
+        Question(text : "Which activities do you enjoy?", type: .multiple,
+                 answers: [
+                    Answer(text: "Staying still", type: .snake),
+                    Answer(text: "Walking in the rain", type: .snail),
+                    Answer(text: "Sneaking into old houses", type: .bat),
+                    Answer(text: "Counting how many arms I have", type: .squid)
+            ]),
+        
+        Question(text : "Do humans generally like you?", type: .ranged,
+                 answers: [
+                    Answer(text: "NO", type: .snake),
+                    Answer(text: "Not really", type: .bat),
+                    Answer(text: "Probably not", type: .squid),
+                    Answer(text: "Kinda", type: .snail)
+            ])
+    ]
     
     func updateUI() {
         singleStackView.isHidden =  true
         multipleStackView.isHidden =  true
         rangedStackView.isHidden =  true
+        // hide all the views, later will reveal each in update functions
         
         let currentQuestion = questions[questionIndex]
         let currentAnswers = currentQuestion.answers
@@ -44,17 +78,7 @@ class QuestionViewController: UIViewController {
             updateMultipleStack(using: currentAnswers)
         case .ranged:
             updateRangedStack(using: currentAnswers)
-        }
-    }
-    
-    func nextQuestion() {
-        questionIndex += 1
-        
-        if questionIndex < questions.count {
-            updateUI()
-        }
-        else {
-            performSegue(withIdentifier: "ResultsSegue", sender: nil)
+        // for each case of question type, call the corresonding udate function
         }
     }
     
@@ -98,7 +122,7 @@ class QuestionViewController: UIViewController {
         case singleButton4:
             answersChosen.append(currentAnswers[3])
         default:
-            break
+            break // although this code will not be used, it needs to be there to make the switch exhautible
         }
         
         nextQuestion()
@@ -131,37 +155,20 @@ class QuestionViewController: UIViewController {
         nextQuestion()
     }
     
-    
-    var questionIndex = 0
-    
-    var answersChosen: [Answer] = []
-    
-    
-    var questions: [Question] = [
-        Question(text : "Which food do you like the most?", type: .single,
-                 answers: [
-                    Answer(text: "Rats", type: .snake),
-                    Answer(text: "Veggies", type: .snail),
-                    Answer(text: "Insects", type: .bat),
-                    Answer(text: "Fish", type: .squid)
-            ]),
+    func nextQuestion() {
+        questionIndex += 1
         
-        Question(text : "Which activities do you enjoy?", type: .multiple,
-                 answers: [
-                    Answer(text: "Staying still", type: .snake),
-                    Answer(text: "Walking in the rain", type: .snail),
-                    Answer(text: "Sneaking into old houses", type: .bat),
-                    Answer(text: "Counting how many arms I have", type: .squid)
-            ]),
-
-        Question(text : "Do humans generally like you?", type: .ranged,
-                answers: [
-                    Answer(text: "NO", type: .snake),
-                    Answer(text: "Not really", type: .bat),
-                    Answer(text: "Probably not", type: .squid),
-                    Answer(text: "Kinda", type: .snail)
-            ])
-    ]
+        if questionIndex < questions.count {
+            updateUI()
+            // if there are questions left, updateUI to display the next question
+        }
+        else {
+            performSegue(withIdentifier: "ResultsSegue", sender: nil)
+            // if there are no more questions, go to the results view
+        }
+    }
+    
+    
     
     @IBOutlet weak var questionLabel: UILabel!
     
