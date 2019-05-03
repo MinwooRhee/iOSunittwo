@@ -15,6 +15,7 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
+        // hide back button to avoid errors
         calculatePersonalityResults()
         // Do any additional setup after loading the view.
     }
@@ -22,11 +23,14 @@ class ResultsViewController: UIViewController {
     func calculatePersonalityResults() {
         var frequencyOfAnswers: [AnimalType: Int] = [:]
         let responseTypes = responses.map { $0.type }
+        // creates an array of types
         for response in responseTypes {
             frequencyOfAnswers[response] = (frequencyOfAnswers[response] ?? 0) + 1
-        }
+        } // if the type don't exist, set it 0. If it does, increment by 1 for each responses.
+        
         
         let mostCommonAnswer = frequencyOfAnswers.sorted { $0.1 > $1.1 }.first!.key
+        // compare pairs to determine which type has most responses
         
         resultAnswerLabel.text = "You are a \(mostCommonAnswer.rawValue)"
         resultDefinitionLabel.text = mostCommonAnswer.definition

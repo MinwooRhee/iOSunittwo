@@ -150,6 +150,7 @@ class QuestionViewController: UIViewController {
     @IBAction func rangedAnswerButtonPressed() {
         let currentAnswers = questions[questionIndex].answers
         let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
+        // rounds the value of the slider to get the insex
         answersChosen.append(currentAnswers[index])
         
         nextQuestion()
